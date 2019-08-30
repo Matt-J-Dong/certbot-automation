@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# Get script directory
-DIR=$(readlink -m ./)
+# Get path to script directory
+if [ -n "${BASH_SOURCE[0]}" ]; then
+  DIR=$(dirname "${BASH_SOURCE[0]}")
+elif [ -n "${0}" ]; then
+  DIR=$(dirname "$(readlink -f "$0")")
+fi
 
 # Include config
 . "${DIR}/certbot.conf"

@@ -1,6 +1,8 @@
 # Certbot Automation
 
-A script which is ment to be executed by a daily cron to request SSL certificates from Let's Encrypt by the Certbot Docker container.
+[![Release](https://img.shields.io/github/v/release/bloodhunterd/certbot-automation?include_prereleases&style=for-the-badge)](https://github.com/bloodhunterd/certbot-automation/releases)
+
+A simple script which is meant to be executed by a daily cron to request SSL certificates from Let's Encrypt using the Certbot Docker container.
 
 ## Getting Started
 
@@ -8,21 +10,23 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Comming soon
+The script requires a [Debian](https://www.debian.org/index.de.html) based system and a working Docker environment.
 
 ### Installing
 
-Place this script somewhere on your disk.
+Place this script somewhere on your server. For example at **/srv/**.
 
 ## Deployment
 
-Add an entry into the crontab to execute this script periodically.
+Setup the configuration and write some domain names into the **.domains** file.
+If a certificate expires in less than 2 weeks, the certificate will automatically renewed.
+Finally add an entry to the Cron table to execute this script periodically.
 
 ```bash
-0 4 * * * /anywhere/on/your/disk/certbot.sh
+0 4 * * * /srv/certbot.sh
 ```
 
-In this example the script would run every day at 4am.
+In this example the script runs every day at 4am.
 
 ## Build With
 

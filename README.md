@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-The script requires a [Debian](https://www.debian.org/index.de.html) based system and a working Docker environment.
+The script requires a Linux based system with Bash support and a working Docker environment.
 
 ### Installing
 
@@ -18,9 +18,16 @@ Place this script somewhere on your server. For example at **/srv/**.
 
 ## Deployment
 
-Setup the configuration and write some domain names into the **.domains** file.
-If a certificate expires in less than 2 weeks, the certificate will automatically renewed.
+Setup the configuration and write some domain names into the **certbot.domains** file.
+If a certificate expires in less than from Let's encrypt defined renewal period, the certificate will automatically renewed.
+
+If one or more docker container should be restarted after a certificate was renewed, add the container name to the **certbot.docker** file.
+
 Finally add an entry to the Cron table to execute this script periodically.
+
+```bash
+crontab -e
+```
 
 ```bash
 0 4 * * * /srv/certbot.sh

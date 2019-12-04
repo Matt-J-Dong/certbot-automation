@@ -1,6 +1,7 @@
 # Certbot Automation
 
-[![Release](https://img.shields.io/github/v/release/bloodhunterd/certbot-automation?include_prereleases&style=for-the-badge)](https://github.com/bloodhunterd/certbot-automation/releases)
+[![Release](https://img.shields.io/github/v/release/bloodhunterd/certbot-automation?style=for-the-badge)](https://github.com/bloodhunterd/certbot-automation/releases)
+[![License](https://img.shields.io/github/license/bloodhunterd/certbot-automation?style=for-the-badge)](https://github.com/bloodhunterd/certbot-automation/blob/master/LICENSE)
 
 A simple script which is meant to be executed by a daily cron to request SSL certificates from Let's Encrypt using the Certbot Docker container.
 

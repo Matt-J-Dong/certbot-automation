@@ -32,7 +32,21 @@ readarray -t DOMAINS < "${DIR}/certbot.domains"
 for ((i=0;i<${#DOMAINS[*]};i++))
 do
     # Certbot requests a new certificate, if the existing expires in less than two weeks
-    docker run --rm --name certbot -v "${CERTBOT_DIR}/letsencrypt/:/etc/letsencrypt/" -v "${CERTBOT_DIR}/log/:/var/log/letsencrypt/" -v "${CERTBOT_DIR}/well-known/:/var/www/letsencrypt/" certbot/certbot certonly --agree-tos --email ${EMAIL} --keep --quiet --rsa-key-size ${KEYSIZE} --webroot -w /var/www/letsencrypt --cert-name ${DOMAINS[i]} -d ${DOMAINS[i]}
+    docker run --rm --name certbot \
+           -v "${CERTBOT_DIR}/letsencrypt/:/etc/letsencrypt/" \
+           -v "${CERTBOT_DIR}/log/:/var/log/letsencrypt/" \
+           -v "${CERTBOT_DIR}/well-known/:/var/www/letsencrypt/" \
+           certbot/certbot \
+           certonly \
+           -d ${DOMAINS[i]} \
+           -w /var/www/letsencrypt \
+           --agree-tos \
+           --cert-name ${DOMAINS[i]} \
+           --email ${EMAIL} \
+           --keep \
+           --quiet \
+           --rsa-key-size ${KEYSIZE} \
+           --webroot
 
     # A certificate was renewed
     if [ `find "${CERTBOT_DIR}/letsencrypt/live/${DOMAINS[i]}/cert.pem" -mmin -10` ]; then

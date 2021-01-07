@@ -11,10 +11,20 @@ Certbot Automation is a shell script to automatically request and renew Let's En
 
 Place this script somewhere on your server. For example at **/srv/**.
 
-Setup the configuration and write some domain names into the **certbot.domains** file.
-If a certificate expires in less than from Let's encrypt defined renewal period, the certificate will automatically renewed.
+### Download
 
-If one or more docker container should be restarted after a certificate was renewed, add the container name to the **certbot.docker** file.
+Download and rename the configuration and domain distribution files.
+
+[![Configuration](https://img.shields.io/github/size/bloodhunterd/certbot-automation/certbot.dist.conf?label=Configuration&style=for-the-badge)](https://github.com/bloodhunterd/certbot-automation/raw/master/certbot.dist.conf)
+[![Domain list](https://img.shields.io/github/size/bloodhunterd/certbot-automation/certbot.dist.domains?label=Domain%20list&style=for-the-badge)](https://github.com/bloodhunterd/certbot-automation/raw/master/certbot.dist.domains)
+[![Docker list](https://img.shields.io/github/size/bloodhunterd/certbot-automation/certbot.dist.docker?label=Docker%20list&style=for-the-badge)](https://github.com/bloodhunterd/certbot-automation/raw/master/certbot.dist.docker)
+
+### Installation
+
+Set up the configuration and write some domain names into the domain list.
+If a certificate expires in less than from Let's encrypt defined renewal period, the certificate will be automatically renewed.
+
+If one or more docker container should be restarted after a certificate was renewed, add the container name to the Docker list file.
 
 Finally add an entry to the Cron table to execute this script periodically.
 

@@ -15,6 +15,11 @@ if [ -z ${CERTBOT_DIR+x} ]; then
   CERTBOT_DIR=$DIR
 fi
 
+# Set Certbot image
+if [ -z ${CERTBOT_IMAGE+x} ]; then
+  CERTBOT_IMAGE='certbot/certbot'
+fi
+
 # Set logfile
 if [ -z ${LOG_FILE+x} ]; then
   LOG_FILE="${DIR}/certbot.log"
@@ -48,7 +53,7 @@ do
       -v "${CERTBOT_DIR}/letsencrypt/:/etc/letsencrypt/" \
       -v "${CERTBOT_DIR}/log/:/var/log/letsencrypt/" \
       -v "${CERTBOT_DIR}/well-known/:/var/www/letsencrypt/" \
-      certbot certonly \
+      "${CERTBOT_IMAGE}" certonly \
       --agree-tos \
       --cert-name "${DOMAINS[i]}" \
       --domains "${DOMAINS[i]}" \
@@ -73,7 +78,7 @@ do
       -v "${CERTBOT_DIR}/letsencrypt/:/etc/letsencrypt/" \
       -v "${CERTBOT_DIR}/log/:/var/log/letsencrypt/" \
       -v "${CERTBOT_DIR}/well-known/:/var/www/letsencrypt/" \
-      certbot certonly \
+      "${CERTBOT_IMAGE}" certonly \
       --agree-tos \
       --cert-name "${DOMAINS[i]}"-ecdsa \
       --domains "${DOMAINS[i]}" \

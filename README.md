@@ -38,6 +38,7 @@ In this example the script runs every day at 4am.
 | ENV | Default | Required | Description
 | ------ | ---- | :------: | -----------
 | CERTBOT_DIR | The script directory | &#10006; | The script directory will be automatically detected by default.
+| CERTBOT_IMAGE | `certbot/certbot` | &#10006; | The certbot image which will be used.
 | EMAIL |  | &#10004; | A valid email address for [Let's Encrypt](https://letsencrypt.org/) to notify you about your certificates.
 | ELLIPTIC_CURVE | `secp256r1` | &#10006; | A valid [Elliptic Curve DSA](https://de.wikipedia.org/wiki/Elliptic_Curve_DSA). Concerns only `ecdsa` key type.
 | LOG_FILE | `certbot.log` | &#10006; | Log output file.

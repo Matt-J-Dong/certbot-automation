@@ -2,6 +2,11 @@
 
 All notable changes will be documented in this file.
 
+<a name="v2-1-1"></a>
+## [2.1.1](https://github.com/bloodhunterd/certbot/releases/tag/2.1.1) &#9839; 04.07.2021
+
+* Support for alternative Certbot images
+
 <a name="v2-1-0"></a>
 ## [2.1.0](https://github.com/bloodhunterd/certbot/releases/tag/2.1.0) &#9839; 03.07.2021
 

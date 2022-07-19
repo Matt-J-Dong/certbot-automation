@@ -1,8 +1,6 @@
 [![Release](https://img.shields.io/github/v/release/bloodhunterd/certbot?style=for-the-badge)](https://github.com/bloodhunterd/certbot/releases)
 [![License](https://img.shields.io/github/license/bloodhunterd/certbot?style=for-the-badge)](https://github.com/bloodhunterd/certbot/blob/master/LICENSE)
 
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/bloodhunterd)
-
 # Certbot
 
 Certbot is a shell script to automatically request and renew Let's Encrypt SSL certificates based on the Certbot Docker image.
